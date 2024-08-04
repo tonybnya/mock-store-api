@@ -18,7 +18,7 @@ class Product(BaseModel):
     category: str
     price: float
     stock: int
-    description: str
+    description: str | None = None
     image_url: HttpUrl
     creation_date: datetime = Field(default_factory=datetime.now)
     update_date: datetime = Field(default_factory=datetime.now)
