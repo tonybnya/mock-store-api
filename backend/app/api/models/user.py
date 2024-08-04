@@ -1,5 +1,5 @@
 """
-Model for the request body of a user.
+Model for the request body of an user.
 A request body is the data sent by a client to the API.
 """
 
