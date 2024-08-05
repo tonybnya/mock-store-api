@@ -2,6 +2,7 @@
 Model for the request body of a review.
 A request body is the data sent by a client to the API.
 """
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -11,6 +12,7 @@ from pydantic import BaseModel, Field, conint, constr
 
 class Review(BaseModel):
     """Define a model for a product review."""
+
     id: int
     user_id: int
     product_id: int
