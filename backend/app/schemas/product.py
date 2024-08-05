@@ -24,6 +24,11 @@ class Product(Base):
     creation_date = Column(DateTime, default=datetime.now)
     update_date = Column(DateTime, default=datetime.now)
 
+    # Relationship with Review
     reviews = relationship("Review", back_populates="product")
+
+    # Relationship with OrderItem
     order_items = relationship("OrderItem", back_populates="product")
+
+    # Relationship with CartItem
     cart_items = relationship("CartItem", back_populates="product")
