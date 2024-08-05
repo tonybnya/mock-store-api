@@ -33,5 +33,8 @@ class CartItem(Base):
     product_id = Column(Integer, ForeignKey("products.id"))
     quantity = Column(Integer)
 
+    # Relationship with Cart
     cart = relationship("Cart", back_populates="cart_items")
+
+    # Relationship with Product
     product = relationship("Product", back_populates="cart_items")
