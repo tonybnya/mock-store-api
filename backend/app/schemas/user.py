@@ -24,6 +24,11 @@ class User(Base):
     registration_date = Column(DateTime, default=datetime.now)
     update_date = Column(DateTime, default=datetime.now)
 
+    # Relationship with Order
     orders = relationship("Order", back_populates="user")
+
+    # Relationship with Review
     reviews = relationship("Review", back_populates="user")
+
+    # Relationship with Cart
     cart = relationship("Cart", uselist=False, back_populates="user")
