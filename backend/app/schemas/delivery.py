@@ -6,7 +6,7 @@ from datetime import datetime
 
 from db.base import Base
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy.orm import relationship
 
 
