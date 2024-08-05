@@ -26,8 +26,9 @@ class User(BaseModel):
     id: int
     username: str
     email: EmailStr
+    password: constr(min_length=8, max_length=16, pattern=pattern)
+    is_active: bool
     shipping_address: Dict[str, str]
     billing_address: Dict[str, str]
-    password: constr(min_length=8, max_length=16, pattern=pattern)
     registration_date: datetime = Field(default_factory=datetime.now)
     update_date: datetime = Field(default_factory=datetime.now)
