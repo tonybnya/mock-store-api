@@ -21,8 +21,8 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     shipping_address = Column(JSON)  # Using JSON type for storing dictionaries
     billing_address = Column(JSON)  # Using JSON type for storing dictionaries
-    registration_date = Column(DateTime, default=datetime.utcnow)
-    update_date = Column(DateTime, default=datetime.utcnow)
+    registration_date = Column(DateTime, default=datetime.now)
+    update_date = Column(DateTime, default=datetime.now)
 
     orders = relationship("Order", back_populates="user")
     reviews = relationship("Review", back_populates="user")
