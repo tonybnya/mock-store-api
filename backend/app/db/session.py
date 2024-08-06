@@ -1,5 +1,5 @@
 """
-Handle the session and engine creation.
+Handle the session and create the SQLAlchemy engine for the database.
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
