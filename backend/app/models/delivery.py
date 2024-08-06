@@ -21,3 +21,9 @@ class Delivery(BaseModel):
     actual_deliveray_date: datetime = Field(default_factory=None)
     creation_date: datetime = Field(default_factory=datetime.now)
     update_date: datetime = Field(default_factory=datetime.now)
+
+    # Provide configurations to Pydantic
+    # Pydantic model will read the data even if it is not a dict,
+    # but an ORM model: `id = data["id"]` as well as `id = data.id`
+    class Config:
+        orm_mode = True
