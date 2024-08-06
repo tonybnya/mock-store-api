@@ -25,10 +25,10 @@ class User(Base):
     update_date = Column(DateTime, default=datetime.now)
 
     # Relationship with Order
-    orders = relationship("Order", back_populates="user")
+    orders = relationship("Order", back_populates="users")
 
     # Relationship with Review
-    reviews = relationship("Review", back_populates="user")
+    reviews = relationship("Review", back_populates="users")
 
     # Relationship with Cart
-    cart = relationship("Cart", uselist=False, back_populates="user")
+    carts = relationship("Cart", uselist=False, back_populates="users")

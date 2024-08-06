@@ -24,7 +24,7 @@ class Review(Base):
     update_date = Column(DateTime, default=datetime.now)
 
     # Relationship with User
-    user = relationship("User", back_populates="reviews")
+    users = relationship("User", back_populates="reviews")
 
     # Relationship with Product
-    product = relationship("Product", back_populates="reviews")
+    products = relationship("Product", back_populates="reviews")

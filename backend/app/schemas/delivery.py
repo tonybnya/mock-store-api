@@ -26,4 +26,4 @@ class Delivery(Base):
     # Relationship with Order
     # a delivery is linked to an order
     order_id = Column(Integer, ForeignKey("orders.id"))
-    order = relationship("Order", back_populates="delivery")
+    orders = relationship("Order", back_populates="deliveries")

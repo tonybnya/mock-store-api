@@ -22,10 +22,10 @@ class Order(Base):
     update_date = Column(DateTime, default=datetime.now)
 
     # Relationship with User
-    user = relationship("User", back_populates="orders")
+    users = relationship("User", back_populates="orders")
 
     # Relationship with OrderItem
-    order_items = relationship("OrderItem", back_populates="order")
+    order_items = relationship("OrderItem", back_populates="orders")
 
 
 class OrderItem(Base):
@@ -40,7 +40,7 @@ class OrderItem(Base):
     price = Column(Float, nullable=False)
 
     # Relationship with Order
-    order = relationship("Order", back_populates="order_items")
+    orders = relationship("Order", back_populates="order_items")
 
     # Relationship with Product
-    product = relationship("Product", back_populates="order_items")
+    products = relationship("Product", back_populates="order_items")

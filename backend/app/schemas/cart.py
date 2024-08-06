@@ -19,8 +19,8 @@ class Cart(Base):
     creation_date = Column(DateTime, default=datetime.now)
     update_date = Column(DateTime, default=datetime.now)
 
-    user = relationship("User", back_populates="cart")
-    cart_items = relationship("CartItem", back_populates="cart")
+    users = relationship("User", back_populates="carts")
+    cart_items = relationship("CartItem", back_populates="carts")
 
 
 class CartItem(Base):
@@ -34,7 +34,7 @@ class CartItem(Base):
     quantity = Column(Integer)
 
     # Relationship with Cart
-    cart = relationship("Cart", back_populates="cart_items")
+    carts = relationship("Cart", back_populates="cart_items")
 
     # Relationship with Product
-    product = relationship("Product", back_populates="cart_items")
+    products = relationship("Product", back_populates="cart_items")
