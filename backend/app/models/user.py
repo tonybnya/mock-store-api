@@ -17,16 +17,13 @@ from pydantic import BaseModel, EmailStr, Field, constr
 # At least one lowercase letter.
 # At least one digit.
 # At least one special character.
-pattern: str = r"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,16}$"
+pattern: str = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,16}$"
 
 
-class User(BaseModel):
-    """Define a model for a user."""
+class UserBase(BaseModel):
+    """Define a base model with common attributes for a user."""
 
-    username: str = Field(min_length=1)
-    email: EmailStr
-    password: constr(min_length=8, max_length=16, pattern=pattern)
-    is_active: bool
+    is_active: bool = True
     shipping_address: Dict[str, str]
     billing_address: Dict[str, str]
     registration_date: datetime = Field(default_factory=datetime.now)
@@ -37,3 +34,17 @@ class User(BaseModel):
     # but an ORM model: `id = data["id"]` as well as `id = data.id`
     class Config:
         orm_mode = True
+
+
+class UserCreate(UserBase):
+    """Define a model for creating a new user."""
+
+    password: constr(min_length=8, max_length=16, pattern=pattern)
+
+
+class User(UserBase):
+    """Define a model for reading user data (excluding sensitive information)."""
+
+    id: int
+    username: str = Field(min_length=1)
+    email: EmailStr
