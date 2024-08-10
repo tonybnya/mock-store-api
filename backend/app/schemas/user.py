@@ -5,7 +5,7 @@ SQLAlchemy schema for the user model.
 from datetime import datetime
 
 from db.base import Base
-from sqlalchemy import JSON, Boolean, Column, DateTime, Integer
+from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, String
 from sqlalchemy.orm import relationship
 
 
