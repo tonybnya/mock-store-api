@@ -5,7 +5,7 @@ SQLAlchemy schema for the user model.
 from datetime import datetime
 
 from db.base import Base
-from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, String
+from sqlalchemy import JSON, Boolean, Column, DateTime, Integer
 from sqlalchemy.orm import relationship
 
 
@@ -19,8 +19,8 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
-    shipping_address = Column(JSON)  # Using JSON type for storing dictionaries
-    billing_address = Column(JSON)  # Using JSON type for storing dictionaries
+    shipping_address = Column(JSON)
+    billing_address = Column(JSON)
     registration_date = Column(DateTime, default=datetime.now)
     update_date = Column(DateTime, default=datetime.now)
 
