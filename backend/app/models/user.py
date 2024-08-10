@@ -1,5 +1,5 @@
 """
-Model for the request body of an user.
+Model for the request body of a user.
 A request body is the data sent by a client to the API.
 """
 
@@ -23,8 +23,7 @@ pattern: str = r"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,16}$"
 class User(BaseModel):
     """Define a model for a user."""
 
-    id: int
-    username: str
+    username: str = Field(min_length=1)
     email: EmailStr
     password: constr(min_length=8, max_length=16, pattern=pattern)
     is_active: bool
