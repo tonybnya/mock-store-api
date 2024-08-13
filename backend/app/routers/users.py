@@ -7,7 +7,7 @@ from __future__ import annotations
 from typing import List, Optional
 
 from dependencies import get_db
-from fastapi import Depends
+from fastapi import APIRouter, Depends, HTTPException
 from main import app
 from sqlalchemy.orm import Session
 
